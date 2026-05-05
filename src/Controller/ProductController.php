@@ -9,6 +9,12 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class ProductController extends AbstractController
 {
+    #[Route('/', name: 'app_home')]
+    public function home(): Response
+    {
+        return $this->redirectToRoute('app_product_index');
+    }
+
     #[Route('/products', name: 'app_product_index')]
     public function index(ProductRepository $productRepository): Response
     {
