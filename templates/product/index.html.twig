@@ -4,7 +4,7 @@
 
 {% block body %}
     <main class="container">
-        <h1>Nos plats et desserts</h1>
+        <h1>Nos plats(eau) et desserts</h1>
 
         {% if products is empty %}
             <p>Aucun produit disponible pour le moment.</p>
@@ -24,7 +24,9 @@
                             Type : {{ product.type }}
                         </p>
 
-                        <a href="#" class="button">Ajouter au panier</a>
+                        <a href="{{ path('app_cart_add', { id: product.id }) }}" class="button">
+							Ajouter au panier
+						</a>
                     </article>
                 {% endfor %}
             </div>
