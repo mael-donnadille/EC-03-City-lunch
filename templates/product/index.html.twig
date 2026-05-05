@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos produits - City Lunch{% endblock %}
+
+{% block body %}
+    <main class="container">
+        <h1>Nos plats et desserts</h1>
+
+        {% if products is empty %}
+            <p>Aucun produit disponible pour le moment.</p>
+        {% else %}
+            <div class="products-grid">
+                {% for product in products %}
+                    <article class="product-card">
+                        <h2>{{ product.name }}</h2>
+
+                        <p>{{ product.description }}</p>
+
+                        <p>
+                            <strong>{{ product.price }} €</strong>
+                        </p>
+
+                        <p>
+                            Type : {{ product.type }}
+                        </p>
+
+                        <a href="#" class="button">Ajouter au panier</a>
+                    </article>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </main>
+{% endblock %}
